@@ -1,0 +1,7 @@
+.env
+.DS_Store
+
+db.sqlite3
+
+blog/__pycache__/
+jayjay/__pycache__
