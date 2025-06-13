@@ -1,5 +1,9 @@
+:root {
+  --profile-height: 15vw;
+}
+
 body {
-    background: #fafafa;
+    background: 	#ced3d4;
     color: #333333;
     margin-top: 0rem;
   }
@@ -87,7 +91,7 @@ ul {
   position: fixed;
   top: 0;
   left: 0;
-  width: 15vw;           
+  width: var(--profile-height);           
   height: auto;
   filter: drop-shadow(3px 3px 3px rgba(0, 0, 0, 0.3));
   }
@@ -113,7 +117,65 @@ ul {
   0% {
     filter: brightness(2);
   }
-  200% {
+  100% {
     filter: brightness(1);
+  }
+}
+
+.tab-list {
+  position: fixed;
+  top: var(--profile-height); /* adjust based on profile height */
+  left: calc(var(--profile-height) * 1/3);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  z-index: 2; /* higher than blue panel */
+}
+
+.post-it-tab {
+  width: calc(var(--profile-height) * 2/3 + 1vw);
+  padding: 10px 15px;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 3px 3px 3px rgba(0,0,0,0.3);
+  transform: rotate(-2deg);
+  transition: transform 0.2s;
+  text-align: right;
+  filter: brightness(100%);
+  transition: ease;
+}
+
+.post-it-red {
+  background-color: #ff7eb9;
+}
+
+.post-it-yellow {
+  background-color: #fff68b;
+}
+
+.post-it-blue {
+  background-color:#71d7ff;
+}
+
+.post-it-green {
+  background-color:#cdfc93;
+}
+
+.post-it-purple {
+  background-color: #ce81ff;
+}
+
+.post-it-tab:hover {
+  /* transform: rotate(0deg) scale(1.05);  */
+  filter: brightness(97%);
+  box-shadow: 2px 2px 2px rgba(0,0,0,0.4);
+}
+
+@media (max-width: 600px) {
+.post-it-tab {
+    writing-mode: vertical-rl;
+    transform: rotate(180deg);
+    clip-path: polygon(0 0, 100% 10%, 100% 90%, 0% 100%);
+    /* adjust styling to look trapezoidal */
   }
 }
