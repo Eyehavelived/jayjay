@@ -20,7 +20,14 @@
     </head>
     <body>
       <header class="site-header">
-        <nav class="navbar navbar-expand-md fixed-top">
+        <div class="profile-group">
+          <img data-is-weasel="true" alt="Profile picture" class="profile-pic">
+          <img data-is-DM="false" alt="Profile accessory" class="profile-accessory">
+          <script src="{% static 'profile/profile.js' %}"></script>
+        </div>
+        
+
+        <!-- <nav class="navbar navbar-expand-md fixed-top">
             <div class="col-md-4">
               <div class="content-section">
                 <h3>Welcome!</h3>
@@ -34,7 +41,7 @@
                     <li class="list-group-item list-group-item-light">etc</li>
                 </p>
               </div>
-              </div>
+              </div> -->
           <!-- <div class="container"> -->
             <!-- <a class="navbar-brand mr-4" href="{% url 'blog-home' %}">Django Blog</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggle" aria-controls="navbarToggle" aria-expanded="false" aria-label="Toggle navigation">
@@ -52,7 +59,7 @@
               </div> -->
             <!-- </div> -->
           <!-- </div> -->
-        </nav>
+        <!-- </nav> -->
       </header>
 
 

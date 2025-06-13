@@ -1,16 +1,16 @@
 body {
     background: #fafafa;
     color: #333333;
-    margin-top: 5rem;
+    margin-top: 0rem;
   }
   
-  h1, h2, h3, h4, h5, h6 {
-    color: #444444;
-  }
-  
-  ul {
-    margin: 0;
-  }
+h1, h2, h3, h4, h5, h6 {
+  color: #444444;
+}
+
+ul {
+  margin: 0;
+}
   
   .bg-steel {
     background-color: #5f788a;
@@ -82,4 +82,38 @@ body {
   .account-heading {
     font-size: 2.5rem;
   }
-  
+
+.profile-group {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 15vw;           
+  height: auto;
+  filter: drop-shadow(3px 3px 3px rgba(0, 0, 0, 0.3));
+  }
+
+.profile-pic, .profile-accessory {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: auto;
+}
+
+.profile-accessory {
+  pointer-events: none;
+  filter: none;
+}
+
+  .profile-pic.flash {
+  animation: flash-white 0.2s ease-out;
+}
+
+@keyframes flash-white {
+  0% {
+    filter: brightness(2);
+  }
+  200% {
+    filter: brightness(1);
+  }
+}
