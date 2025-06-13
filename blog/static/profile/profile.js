@@ -7,6 +7,14 @@ document.addEventListener('DOMContentLoaded', function () {
     img.src = src;
   }
 
+  const updateShoutoutBubble = (img) => {
+    const bubble = document.querySelector('profile-bubble');
+    const isWeasel = img.dataset.isWeasel === "true";
+    bubble.innerHTML = isWeasel
+    ? 'Shoutout to <a href="https://bsky.app/profile/id-x.bsky.social">IDX</a> for drawing my assets!'
+    : 'Shoutout to <a href="https://linktr.ee/ShizuoRin">ShizuoRin</a> for this profile picture!';
+  }
+
   const updateProfileAccessorySrc = (img) => {
     const isDM = img.dataset.isDM === "true";
     let src = "/static/profile/";
@@ -20,11 +28,13 @@ document.addEventListener('DOMContentLoaded', function () {
 
   updateProfileImageSrc(profilePic)
   updateProfileAccessorySrc(profileAcessory)
+  updateShoutoutBubble(profilePic)
   
   profilePic.addEventListener('click', function () {
     const current = profilePic.dataset.isWeasel === "true";
     profilePic.dataset.isWeasel = (!current).toString();
     updateProfileImageSrc(profilePic);
+    updateShoutoutBubble(profilePic)
 
     // Add flash class
     profilePic.classList.add('flash');

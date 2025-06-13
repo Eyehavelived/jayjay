@@ -117,3 +117,44 @@ ul {
     filter: brightness(1);
   }
 }
+
+/* Speech bubble */
+.profile-bubble {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  transform: translateY(10px);
+  background: #fff;
+  border: 1px solid #ccc;
+  padding: 8px 12px;
+  border-radius: 12px;
+  white-space: nowrap;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.15);
+  font-size: 0.9rem;
+  display: none; /* hidden by default */
+  z-index: 20;
+}
+
+/* Little triangle pointer */
+.profile-bubble::after {
+  content: "";
+  position: absolute;
+  top: -8px;
+  left: 10px;
+  border: 8px solid transparent;
+  border-bottom-color: #ccc;
+}
+
+.profile-bubble::before {
+  content: "";
+  position: absolute;
+  top: -7px;
+  left: 10px;
+  border: 7px solid transparent;
+  border-bottom-color: #fff;
+}
+
+/* Show on hover */
+.profile-group:hover .profile-bubble {
+  display: block;
+}
