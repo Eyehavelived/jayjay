@@ -1,6 +1,11 @@
 :root {
   --profile-size: 15vw;
   --post-it-overlap: 1vw;
+  --frame-height: calc(100vh - (var(--profile-size)/3));
+  --right-frame-width: calc(132/1804 * var(--frame-height));
+  --left-frame-width: calc(433/1804 * var(--frame-height));
+  --frame-left-pad: calc(var(--profile-size) * 5/6);
+  --frame-top-pad: calc(var(--profile-size)/3);
 }
 
 @font-face {
@@ -102,6 +107,7 @@ ul {
   width: var(--profile-size);           
   height: auto;
   filter: drop-shadow(3px 3px 3px rgba(0, 0, 0, 0.3));
+  z-index: 5;
   }
 
 .profile-pic, .profile-accessory {
@@ -142,7 +148,7 @@ ul {
 
 .post-it-tab {
   width: calc(var(--profile-size) * 2/3 + 1vw + var(--post-it-overlap));
-  padding: 10px 15px;
+  padding: 1vw;
   font-weight: bold;
   cursor: pointer;
   box-shadow: 3px 3px 3px rgba(0,0,0,0.3);
@@ -178,12 +184,51 @@ ul {
   box-shadow: 2px 2px 2px rgba(0,0,0,0.4);
 }
 
+.scroll-area {
+  top: var(--profile-size); /* adjust based on profile height */
+  left: var(--profile-size);
+}
+
+/* Fixed-position side frames */
+.frame-left,
+.frame-right {
+  position: absolute;
+  top: var(--frame-top-pad);
+  height:  var(--frame-height);
+  width: auto;
+  object-fit: cover;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.frame-left {
+  left: var(--frame-left-pad);
+}
+
+.frame-right {
+  right: 0;
+}
+
+/* Stretchable middle frame */
+.frame-middle {
+  position: absolute;
+  top: var(--frame-top-pad);
+  height: var(--frame-height);
+  object-fit: fill;
+  z-index: 0;
+  pointer-events: none;
+}
+
+
 @media (max-width: 767) or (orientation: portrait) {
 .post-it-tab {
+    width: 5vw;
+    height: var(--profile-size);
     writing-mode: vertical-rl;
     transform: rotate(180deg);
     clip-path: polygon(0 0, 100% 10%, 100% 90%, 0% 100%);
     box-shadow: 3px 3px 3px rgba(0,0,0,0.3);
+    border-radius: 12px;
     /* adjust styling to look trapezoidal */
   }
 }

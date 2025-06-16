@@ -64,20 +64,23 @@
 
 
         <main role="main" class="container">
-            
-            <div class="row">
-              
-            <div class="col-md-2"></div>
+          <img src="/static/frame/frame-left.png" class="frame-left" />
+          <img src="/static/frame/frame-middle.png" class="frame-middle" />
+          <img src="/static/frame/frame-right.png" class="frame-right" />
+          <script src="{% static 'frame/updateMiddleWidth.js' %}"></script>
+              <!-- <svg xmlns="http://www.w3.org/2000/svg" class="binder-cover">
+                <rect x="0" y="0" width="100%" height="100%" />
+              </svg> -->
               <div class="tab-list">
                 <div class="post-it-tab post-it-red" href="{% url 'about'%}">About</div>
                 <div class="post-it-tab post-it-yellow" href="{% url 'about'%}">Technology</div>
                 <div class="post-it-tab post-it-blue" href="{% url 'about'%}">DnD</div>
                 <div class="post-it-tab post-it-green" href="{% url 'about'%}">Pixel Art</div>
               </div>
-              <div class="col-md-8">
-                {% block content %}{% endblock %}
-              </div>
-            </div>
+              <!-- <div class="scroll-area">
+                  {% block content %}{% endblock %}
+              </div>             -->
+            <!-- <div class="row"> -->
         </main>
 
         <!-- Optional JavaScript -->
