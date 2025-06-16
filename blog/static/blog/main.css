@@ -1,5 +1,13 @@
 :root {
-  --profile-height: 15vw;
+  --profile-size: 15vw;
+  --post-it-overlap: 1vw;
+}
+
+@font-face {
+  font-family: 'Chalky';
+  src: url('../fonts/CHALKY-REGULAR.TTF') format('truetype');
+  font-weight: normal;
+  font-style: normal;
 }
 
 body {
@@ -91,7 +99,7 @@ ul {
   position: fixed;
   top: 0;
   left: 0;
-  width: var(--profile-height);           
+  width: var(--profile-size);           
   height: auto;
   filter: drop-shadow(3px 3px 3px rgba(0, 0, 0, 0.3));
   }
@@ -124,8 +132,8 @@ ul {
 
 .tab-list {
   position: fixed;
-  top: var(--profile-height); /* adjust based on profile height */
-  left: calc(var(--profile-height) * 1/3);
+  top: var(--profile-size); /* adjust based on profile height */
+  left: calc(var(--profile-size) * 1/3);
   display: flex;
   flex-direction: column;
   gap: 10px;
@@ -133,16 +141,16 @@ ul {
 }
 
 .post-it-tab {
-  width: calc(var(--profile-height) * 2/3 + 1vw);
+  width: calc(var(--profile-size) * 2/3 + 1vw + var(--post-it-overlap));
   padding: 10px 15px;
   font-weight: bold;
   cursor: pointer;
   box-shadow: 3px 3px 3px rgba(0,0,0,0.3);
-  transform: rotate(-2deg);
-  transition: transform 0.2s;
-  text-align: right;
+  text-align: center;
   filter: brightness(100%);
   transition: ease;
+  font-family: 'Chalky', sans-serif;
+  font-size: 2vw;
 }
 
 .post-it-red {
@@ -166,16 +174,16 @@ ul {
 }
 
 .post-it-tab:hover {
-  /* transform: rotate(0deg) scale(1.05);  */
   filter: brightness(97%);
   box-shadow: 2px 2px 2px rgba(0,0,0,0.4);
 }
 
-@media (max-width: 600px) {
+@media (max-width: 767) or (orientation: portrait) {
 .post-it-tab {
     writing-mode: vertical-rl;
     transform: rotate(180deg);
     clip-path: polygon(0 0, 100% 10%, 100% 90%, 0% 100%);
+    box-shadow: 3px 3px 3px rgba(0,0,0,0.3);
     /* adjust styling to look trapezoidal */
   }
 }
