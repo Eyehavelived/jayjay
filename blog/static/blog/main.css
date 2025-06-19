@@ -190,8 +190,7 @@ ul {
 }
 
 /* Fixed-position side frames */
-.frame-left,
-.frame-right {
+.frame-left {
   position: absolute;
   top: var(--frame-top-pad);
   height:  var(--frame-height);
@@ -199,22 +198,14 @@ ul {
   object-fit: cover;
   z-index: 0;
   pointer-events: none;
-}
-
-.frame-left {
   left: var(--frame-left-pad);
 }
 
-.frame-right {
-  right: 0;
-}
-
-/* Stretchable middle frame */
 .frame-middle {
   position: absolute;
   top: var(--frame-top-pad);
   height: var(--frame-height);
-  object-fit: fill;
+  width: 100vw;
   z-index: 0;
   pointer-events: none;
 }
